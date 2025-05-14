@@ -18,3 +18,16 @@ DROP TABLE IF EXISTS AuditLog;
 -- Database creation
 CREATE DATABASE library_management;
 USE library_management;
+
+-- ================= CORE TABLES =================
+
+-- Publishers: Stores information about book publishers
+CREATE TABLE Publishers (
+    publisher_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    address VARCHAR(200),
+    contact_email VARCHAR(100),
+    phone VARCHAR(20),
+    established_year YEAR,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) COMMENT 'Contains publisher information';
