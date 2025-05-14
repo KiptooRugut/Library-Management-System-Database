@@ -43,3 +43,20 @@ CREATE TABLE Authors (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT unique_author UNIQUE (first_name, last_name, birth_date)
 ) COMMENT 'Contains details about book authors';
+
+-- Books: Main table containing book information
+CREATE TABLE Books (
+    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    isbn VARCHAR(20) UNIQUE NOT NULL,
+    publisher_id INT,
+    publication_year YEAR,
+    edition INT DEFAULT 1,
+    category VARCHAR(50),
+    total_copies INT DEFAULT 1,
+    available_copies INT DEFAULT 1,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (publisher_id) REFERENCES Publishers(publisher_id)
+        ON DELETE SET NULL,
+    CONSTRAINT chk_copies CHECK (available_copies <= total_copies AND available_copies >= 0)
+) COMMENT 'Main table containing book information';
