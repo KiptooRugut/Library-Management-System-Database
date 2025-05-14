@@ -60,3 +60,14 @@ CREATE TABLE Books (
         ON DELETE SET NULL,
     CONSTRAINT chk_copies CHECK (available_copies <= total_copies AND available_copies >= 0)
 ) COMMENT 'Main table containing book information';
+
+-- BookAuthors: Junction table for book-author many-to-many relationship
+CREATE TABLE BookAuthors (
+    book_id INT NOT NULL,
+    author_id INT NOT NULL,
+    PRIMARY KEY (book_id, author_id),
+    FOREIGN KEY (book_id) REFERENCES Books(book_id)
+        ON DELETE CASCADE,
+    FOREIGN KEY (author_id) REFERENCES Authors(author_id)
+        ON DELETE CASCADE
+) COMMENT 'Junction table for book-author many-to-many relationship';
