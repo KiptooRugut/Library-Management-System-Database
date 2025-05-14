@@ -135,3 +135,8 @@ INSERT INTO BookAuthors (book_id, author_id) VALUES
 (1, 1), -- 1984 by George Grey
 (2, 2), -- Harry Potter by J.K. Sigilai
 (3, 3); -- The Shining by Stephen Kingslay
+
+-- Insert sample members
+INSERT INTO Members (first_name, last_name, email, phone, membership_date) VALUES
+('John', 'Doe', 'john.doe@email.com', '555-0101', '2023-01-15'),
+('Jane', 'Smach', 'jane.smach@email.com', '555-0102', '2023-02-20');
