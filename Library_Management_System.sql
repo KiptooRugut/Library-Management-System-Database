@@ -123,3 +123,9 @@ INSERT INTO Authors (first_name, last_name, birth_date, nationality) VALUES
 ('George', 'Grey', '1993-06-25', 'Kenyan'),
 ('J.K.', 'Sigilai', '1985-07-31', 'Ugandan'),
 ('Stephen', 'King', '1977-09-21', 'South African');
+
+-- Insert sample books
+INSERT INTO Books (title, isbn, publisher_id, publication_year, total_copies, available_copies) VALUES
+('1984', '9780451524935', 1, 1949, 5, 5),
+('Harry Potter and the Philosopher''s Stone', '9780747532743', 2, 1997, 3, 3),
+('The Shining', '9780307743657', 3, 1977, 4, 4);
