@@ -110,3 +110,10 @@ CREATE INDEX idx_books_title ON Books(title);
 CREATE INDEX idx_books_isbn ON Books(isbn);
 CREATE INDEX idx_members_email ON Members(email);
 CREATE INDEX idx_loans_dates ON Loans(loan_date, due_date, return_date);
+
+-- ============== SAMPLE DATA ==============
+-- Insert sample publishers
+INSERT INTO Publishers (name, address, contact_email, established_year) VALUES
+('Black Random House', '175 Broadway, Nairobi, Nai', 'info@randomhouse.com', 2013),
+('Mike Kiptoo', '195 Kipchoge, Eldoret, Ld', 'contact@mike.com', 1989),
+('Candy & Mutable', '7831 Avenue of the Marathoners, Kaptagat, Ld', 'info@candy.com', 1924);
