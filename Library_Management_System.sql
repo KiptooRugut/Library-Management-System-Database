@@ -85,3 +85,22 @@ CREATE TABLE Members (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT chk_email CHECK (email LIKE '%@%.%')
 ) COMMENT 'Stores information about library members';
+
+
+-- Loans: Tracks all book loans and returns
+CREATE TABLE Loans (
+    loan_id INT AUTO_INCREMENT PRIMARY KEY,
+    book_id INT NOT NULL,
+    member_id INT NOT NULL,
+    loan_date DATE NOT NULL,
+    due_date DATE NOT NULL,
+    return_date DATE,
+    status ENUM('Active', 'Returned', 'Overdue', 'Lost') DEFAULT 'Active',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (book_id) REFERENCES Books(book_id)
+        ON DELETE CASCADE,
+    FOREIGN KEY (member_id) REFERENCES Members(member_id)
+        ON DELETE CASCADE,
+    CONSTRAINT chk_dates CHECK (due_date >= loan_date AND 
+                              (return_date IS NULL OR return_date >= loan_date))
+) COMMENT 'Tracks all book loans and returns';
