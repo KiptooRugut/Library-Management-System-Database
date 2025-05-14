@@ -31,3 +31,15 @@ CREATE TABLE Publishers (
     established_year YEAR,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) COMMENT 'Contains publisher information';
+
+-- Authors: Stores information about book authors
+CREATE TABLE Authors (
+    author_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    birth_date DATE,
+    nationality VARCHAR(50),
+    biography TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT unique_author UNIQUE (first_name, last_name, birth_date)
+) COMMENT 'Contains details about book authors';
