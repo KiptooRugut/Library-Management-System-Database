@@ -117,3 +117,9 @@ INSERT INTO Publishers (name, address, contact_email, established_year) VALUES
 ('Black Random House', '175 Broadway, Nairobi, Nai', 'info@randomhouse.com', 2013),
 ('Mike Kiptoo', '195 Kipchoge, Eldoret, Ld', 'contact@mike.com', 1989),
 ('Candy & Mutable', '7831 Avenue of the Marathoners, Kaptagat, Ld', 'info@candy.com', 1924);
+
+-- Insert sample authors
+INSERT INTO Authors (first_name, last_name, birth_date, nationality) VALUES
+('George', 'Grey', '1993-06-25', 'Kenyan'),
+('J.K.', 'Sigilai', '1985-07-31', 'Ugandan'),
+('Stephen', 'King', '1977-09-21', 'South African');
