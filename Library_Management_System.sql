@@ -104,3 +104,9 @@ CREATE TABLE Loans (
     CONSTRAINT chk_dates CHECK (due_date >= loan_date AND 
                               (return_date IS NULL OR return_date >= loan_date))
 ) COMMENT 'Tracks all book loans and returns';
+
+-- ============== INDEXES ==============
+CREATE INDEX idx_books_title ON Books(title);
+CREATE INDEX idx_books_isbn ON Books(isbn);
+CREATE INDEX idx_members_email ON Members(email);
+CREATE INDEX idx_loans_dates ON Loans(loan_date, due_date, return_date);
