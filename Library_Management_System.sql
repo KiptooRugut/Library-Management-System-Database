@@ -71,3 +71,17 @@ CREATE TABLE BookAuthors (
     FOREIGN KEY (author_id) REFERENCES Authors(author_id)
         ON DELETE CASCADE
 ) COMMENT 'Junction table for book-author many-to-many relationship';
+
+-- Members: Stores information about library members
+CREATE TABLE Members (
+    member_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    phone VARCHAR(20),
+    address VARCHAR(200),
+    membership_date DATE NOT NULL,
+    membership_status ENUM('Active', 'Expired', 'Suspended') DEFAULT 'Active',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT chk_email CHECK (email LIKE '%@%.%')
+) COMMENT 'Stores information about library members';
