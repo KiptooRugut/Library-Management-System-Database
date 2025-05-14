@@ -15,3 +15,6 @@ DROP TABLE IF EXISTS Authors;
 DROP TABLE IF EXISTS Publishers;
 DROP TABLE IF EXISTS AuditLog;
 
+-- Database creation
+CREATE DATABASE library_management;
+USE library_management;
